@@ -9,7 +9,7 @@ public class SchedFact {
 		} else if (schedType instanceof HealthApp) {
 			return new DocScheduler((HealthApp) schedType);
 		} else if (schedType instanceof SocialApplication) {
-			// return SocialAppSched
+			return new SecScheduler((SocialApplication) schedType);
 		} else if (schedType instanceof AcademicApplication) {
 			// return AcademicApplicationSched
 		} else if (schedType instanceof MentalHealth) {

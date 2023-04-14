@@ -10,8 +10,8 @@ public class Student {
 	public ArrayList<Organisation> organisations;
 	private Scheduler sched;
 	private HealthApp doctor;
-	
-	
+	private SocialApplication security;
+	public ArrayList<String> events;
 	
 	public Student(String firstName, String lastName, String password) {
 		this.firstName = firstName;
@@ -19,6 +19,7 @@ public class Student {
 		this.password = password;	
 		this.organisations = new ArrayList<Organisation>();
 		this.sched = new OrgScheduler(this);
+		this.security = new SocialApplication();
 	}
 	
 	public boolean editLastName(String newName) {
@@ -40,7 +41,8 @@ public class Student {
 	}
 	
 	public ArrayList<String> getEvents() {
-		return this.sched.getEvents();
+		ArrayList<String> result = this.sched.getEvents();
+		return result;
 	}
 	
 	public void assignDoc(HealthApp doctor) {
@@ -48,6 +50,17 @@ public class Student {
 	}
 	
 	public void setDocApt(String date) {
+		this.events.add(date);
 		this.doctor.hSched.addEvent(date);
+	}
+	
+	public void alertSecurity() {
+		String date = "now date placeholder";
+		this.security.secSched.addEvent(date);
+	}
+	
+	public void confirmSecurity() {
+		ArrayList<String> secEvents = this.security.secSched.getEvents();
+		System.out.println(secEvents);// placeholder for algorithm to detirmine if sec is coming from their events
 	}
 }

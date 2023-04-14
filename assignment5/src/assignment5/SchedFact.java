@@ -11,9 +11,9 @@ public class SchedFact {
 		} else if (schedType instanceof SocialApplication) {
 			return new SecScheduler((SocialApplication) schedType);
 		} else if (schedType instanceof AcademicApplication) {
-			// return AcademicApplicationSched
+			return new AcademicSched((AcademicApplication) schedType);
 		} else if (schedType instanceof MentalHealth) {
-			// return MentalHealthSched
+			return new MentalHealthSched((MentalHealth) schedType);
 		} 
 		return null;
 	}

@@ -12,13 +12,15 @@ public class Student {
 	private HealthApp doctor;
 	private SocialApplication security;
 	public ArrayList<String> events;
+	public SchedFact fact = new SchedFact();
+	public MentalHealth mental;
 	
 	public Student(String firstName, String lastName, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;	
 		this.organisations = new ArrayList<Organisation>();
-		this.sched = new OrgScheduler(this);
+		this.sched = fact.getSched(this);
 		this.security = new SocialApplication();
 	}
 	
@@ -62,5 +64,15 @@ public class Student {
 	public void confirmSecurity() {
 		ArrayList<String> secEvents = this.security.secSched.getEvents();
 		System.out.println(secEvents);// placeholder for algorithm to detirmine if sec is coming from their events
+	}
+	
+	public void assignMH(MentalHealth mh) {
+		this.mental = mh;
+	}
+	
+	public void setMHApt(String date) {
+		this.events.add(date);
+		this.mental.mSched.addEvent(date);
+		System.out.println(this.mental.mSched.getEvents()); //Filter to events that only apply to current student
 	}
 }

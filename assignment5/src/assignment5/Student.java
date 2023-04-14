@@ -52,11 +52,11 @@ public class Student {
 	public void setDocApt(String date) {
 		this.events.add(date);
 		this.doctor.hSched.addEvent(date);
+		System.out.println(this.doctor.hSched.getEvents()); //Filter to events that only apply to current student
 	}
 	
 	public void alertSecurity() {
-		String date = "now date placeholder";
-		this.security.secSched.addEvent(date);
+		this.security.contactSec();
 	}
 	
 	public void confirmSecurity() {

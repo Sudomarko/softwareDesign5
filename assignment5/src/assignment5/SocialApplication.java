@@ -5,7 +5,12 @@ public class SocialApplication {
 	public Scheduler secSched;
 	
 	public SocialApplication() {
-		
+		this.secSched = new SecScheduler(this);
+	}
+	
+	public boolean contactSec() {
+		this.secSched.addEvent("current time placeholder");
+		return true;
 	}
 
 }

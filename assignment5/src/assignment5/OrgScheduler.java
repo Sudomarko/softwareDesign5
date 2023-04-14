@@ -26,4 +26,8 @@ public class OrgScheduler implements Scheduler {
 		return result;
 
 	}
+	
+	public void addEvent(String event) {
+		System.out.println("Students cant create organisation events");
+	}
 }

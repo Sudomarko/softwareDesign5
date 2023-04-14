@@ -9,6 +9,7 @@ public class Student {
 	private String password;
 	public ArrayList<Organisation> organisations;
 	private Scheduler sched;
+	private HealthApp doctor;
 	
 	
 	
@@ -40,5 +41,13 @@ public class Student {
 	
 	public ArrayList<String> getEvents() {
 		return this.sched.getEvents();
+	}
+	
+	public void assignDoc(HealthApp doctor) {
+		this.doctor = doctor;
+	}
+	
+	public void setDocApt(String date) {
+		this.doctor.hSched.addEvent(date);
 	}
 }

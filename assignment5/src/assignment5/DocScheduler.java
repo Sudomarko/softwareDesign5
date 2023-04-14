@@ -4,13 +4,17 @@ import java.util.ArrayList;
 
 public class DocScheduler implements Scheduler{
 	public HealthApp doctor;
+	public ArrayList<String> events;
 	
 	public DocScheduler(HealthApp doctor) {
 		this.doctor = doctor;
 	}
 	
 	public ArrayList<String> getEvents() {
-		return new ArrayList<String>();
+		return events;
 	}
 	
+	public void addEvent(String event) {
+		this.events.add(event);
+	}
 }

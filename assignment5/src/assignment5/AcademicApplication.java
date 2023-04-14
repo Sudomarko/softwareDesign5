@@ -6,6 +6,7 @@ public class AcademicApplication {
 	public String form;
 	public Scheduler aSched;
 	public boolean approved = true;
+	public String advisor = "Advisor Name";
 	
 	public AcademicApplication(String form) {
 		this.form = form;

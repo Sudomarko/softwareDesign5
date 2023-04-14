@@ -8,7 +8,7 @@ public class Student {
 	public String lastName;
 	private String password;
 	public ArrayList<Organisation> organisations;
-	private OrgScheduler sched;
+	private Scheduler sched;
 	
 	
 	

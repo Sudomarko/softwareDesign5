@@ -1,5 +1,7 @@
 package assignment5;
 
-public class Scheduler {
+import java.util.*;
 
+public interface Scheduler {
+	ArrayList<String> getEvents();
 }

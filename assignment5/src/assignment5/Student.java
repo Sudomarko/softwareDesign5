@@ -8,6 +8,8 @@ public class Student {
 	public String lastName;
 	private String password;
 	public ArrayList<Organisation> organisations;
+	private OrgScheduler sched;
+	
 	
 	
 	public Student(String firstName, String lastName, String password) {
@@ -15,6 +17,7 @@ public class Student {
 		this.lastName = lastName;
 		this.password = password;	
 		this.organisations = new ArrayList<Organisation>();
+		this.sched = new OrgScheduler(this);
 	}
 	
 	public boolean editLastName(String newName) {
@@ -36,19 +39,6 @@ public class Student {
 	}
 	
 	public ArrayList<String> getEvents() {
-		// double nested for loop which returns the events each student is signed up for
-		Iterator<Organisation> it = organisations.iterator();
-		ArrayList<String> result = new ArrayList<String>();
-		String temp;
-		while(it.hasNext()) {
-			Organisation org = it.next();
-			Iterator<SocialGathering> itSC = org.getGatherings().iterator();
-			while(itSC.hasNext()) {
-				temp = itSC.next().event;
-				result.add(temp);
-				System.out.println(temp);
-			}
-		}
-		return result;
+		return this.sched.getEvents();
 	}
 }

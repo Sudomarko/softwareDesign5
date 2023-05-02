@@ -60,7 +60,10 @@ public class Student {
 	}
 	
 	public void alertSecurity() {
-		this.security.contactSec(this.firstName);
+		// If security confirms notify user
+		if (this.security.contactSec(this.firstName)) {
+			System.out.println(this.security.name + " is on its way to " + this.firstName);
+		}
 	}
 	
 	public void confirmSecurity() {

@@ -5,6 +5,7 @@ public class TestSystem {
 	public static void main(String[] args) {
 		testAcademic();
 		testHealth();
+		testSocial();
 	}
 	
 	public static void testAcademic() {
@@ -28,5 +29,14 @@ public class TestSystem {
 		marko.assignHosp(leafEmergencyCare);
 		// Set doctor appointment with date and doc name
 		marko.setDocApt("January 5th 2024");
+	}
+	
+	public static void testSocial() {
+		// Create student with advisor
+		AcademicApplication mvAdv = new AcademicApplication();
+		mvAdv.advisor = "Marius Silaghi";
+		Student marko = new Student("Marko", "Vukasinovic", "password", mvAdv);
+		// Student alerts security, only one security on campus so class is initialized with student creation
+		marko.alertSecurity();
 	}
 }

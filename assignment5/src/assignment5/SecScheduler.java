@@ -8,6 +8,7 @@ public class SecScheduler implements Scheduler {
 	
 	public SecScheduler(SocialApplication security) {
 		this.security = security;
+		this.events = new ArrayList<String>();
 	}
 	
 	public ArrayList<String> getEvents() {
@@ -16,5 +17,6 @@ public class SecScheduler implements Scheduler {
 	
 	public void addEvent(String event, String student) {
 		this.events.add(event);
+		System.out.println(this.security.name + " has been alerted by " + student + " at " + event);
 	}
 }

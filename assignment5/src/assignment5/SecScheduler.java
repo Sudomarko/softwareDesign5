@@ -14,7 +14,7 @@ public class SecScheduler implements Scheduler {
 		return events;
 	}
 	
-	public void addEvent(String event) {
+	public void addEvent(String event, String student) {
 		this.events.add(event);
 	}
 }

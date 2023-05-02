@@ -11,7 +11,7 @@ public class Student {
 	private Scheduler sched;
 	private HealthApp doctor;
 	private SocialApplication security;
-	public ArrayList<String> events;
+	public ArrayList<String> events = new ArrayList<String>();
 	public SchedFact fact = new SchedFact();
 	public MentalHealth mental;
 	public AcademicApplication advisor;
@@ -55,12 +55,12 @@ public class Student {
 	
 	public void setDocApt(String date) {
 		this.events.add(date);
-		this.doctor.hSched.addEvent(date);
+		this.doctor.hSched.addEvent(date, this.firstName);
 		System.out.println(this.doctor.hSched.getEvents()); //Filter to events that only apply to current student
 	}
 	
 	public void alertSecurity() {
-		this.security.contactSec();
+		this.security.contactSec(this.firstName);
 	}
 	
 	public void confirmSecurity() {
@@ -72,15 +72,20 @@ public class Student {
 		this.mental = mh;
 	}
 	
-	public void schedAdvisor(String date) {
+	public void schedAdvisor(String date, String regform) {
+		// add event to student calendar
 		this.events.add(date);
-		this.advisor.aSched.addEvent(date);
-		System.out.println(this.advisor.aSched.getEvents()); //Filter to events that only apply to current student
+		// send form to advisor
+		this.advisor.regform = regform;
+		// add event to advisor calendar
+		this.advisor.aSched.addEvent(date, this.firstName);
+		// notify student of added event
+		System.out.println(this.firstName + " has an appointment with " + this.advisor.advisor + " on " + date + " regarding " +regform); //Filter to events that only apply to current student
 	}
 	
 	public void setMHApt(String date) {
 		this.events.add(date);
-		this.mental.mSched.addEvent(date);
+		this.mental.mSched.addEvent(date, this.firstName);
 		System.out.println(this.mental.mSched.getEvents()); //Filter to events that only apply to current student
 	}
 }

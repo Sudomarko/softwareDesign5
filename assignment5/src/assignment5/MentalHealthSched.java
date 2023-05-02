@@ -14,7 +14,7 @@ public class MentalHealthSched implements Scheduler{
 		return events;
 	}
 	
-	public void addEvent(String event) {
+	public void addEvent(String event, String student) {
 		this.events.add(event); //Make function to add weekly event until EOY
 	}
 }

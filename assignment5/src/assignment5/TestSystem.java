@@ -3,8 +3,14 @@ package assignment5;
 public class TestSystem {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
+		testAcademic();
+	}
+	
+	public static void testAcademic() {
+		AcademicApplication mvAdv = new AcademicApplication("Registration Form");
+		mvAdv.advisor = "Marius Silaghi";
+		Student marko = new Student("Marko", "Vukasinovic", "password", mvAdv);
+		marko.schedAdvisor("October 19th 2023", "regform.txt");
 	}
 
 }

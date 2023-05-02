@@ -9,7 +9,7 @@ public class Student {
 	private String password;
 	public ArrayList<Organisation> organisations;
 	private Scheduler sched;
-	private HealthApp doctor;
+	private HealthApp hospital;
 	private SocialApplication security;
 	public ArrayList<String> events = new ArrayList<String>();
 	public SchedFact fact = new SchedFact();
@@ -49,14 +49,14 @@ public class Student {
 		return result;
 	}
 	
-	public void assignDoc(HealthApp doctor) {
-		this.doctor = doctor;
+	public void assignHosp(HealthApp hospital) {
+		this.hospital = hospital;
 	}
 	
 	public void setDocApt(String date) {
 		this.events.add(date);
-		this.doctor.hSched.addEvent(date, this.firstName);
-		System.out.println(this.doctor.hSched.getEvents()); //Filter to events that only apply to current student
+		this.hospital.hSched.addEvent(date, this.firstName);
+		System.out.println(this.firstName + " scheduled a health appointment with " + this.hospital.hospitalName + " hospital on " + date); //Filter to events that only apply to current student
 	}
 	
 	public void alertSecurity() {
